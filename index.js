@@ -1,16 +1,15 @@
 const BASE_URL = 'https://official-joke-api.appspot.com/random_ten';
-const LOCAL_URL = 'http://localhost:3000/';
+const LOCAL_URL = 'http://localhost:3000/jokes';
 let JOKEDATA = [];
 
 function getJokes() {
     fetch(BASE_URL)
     .then(response => response.json())
-    .then(data => data.forEach(jokeObj => JOKEDATA.push(jokeObj)))
+    .then(data => data.forEach(jokeObj => postJokes(jokeObj)))
 }
-// working on adding postJokes .forEach(jokeObj => postJokes(jokeObj))
+// working on adding postJokes  .forEach(jokeObj => JOKEDATA.push(jokeObj)))
 function postJokes(jokeObj) {
     console.log(jokeObj);
-    debugger;
     fetch(LOCAL_URL, {
         method: "POST",
         headers: {
@@ -37,7 +36,8 @@ function addJoke(){
     punchline.innerText = JOKEDATA[0].punchline;
     const punchBttn = document.getElementById('punchBttn');
 
-
+// fyi <tag or id>.removeAttribute('hidden');
+// to add <tag or id>.setAttribute('hidden', true)
 }
 
 //eventlistener for the rating that when submitted, send PATCH to json

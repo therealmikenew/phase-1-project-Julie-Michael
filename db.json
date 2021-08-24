@@ -1,0 +1,99 @@
+{
+  "jokes": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 265,
+      "type": "general",
+      "setup": "What kind of bagel can fly?",
+      "punchline": "A plain bagel."
+    },
+    {
+      "id": 375,
+      "type": "general",
+      "setup": "Why does Superman get invited to dinners?",
+      "punchline": "Because he is a Supperhero."
+    },
+    {
+      "id": 302,
+      "type": "general",
+      "setup": "Where do you learn to make banana splits?",
+      "punchline": "At sundae school."
+    },
+    {
+      "id": 371,
+      "type": "general",
+      "setup": "Why does a chicken coop only have two doors?",
+      "punchline": "Because if it had four doors it would be a chicken sedan."
+    },
+    {
+      "id": 331,
+      "type": "general",
+      "setup": "Why did the burglar hang his mugshot on the wall?",
+      "punchline": "To prove that he was framed!"
+    },
+    {
+      "id": 72,
+      "type": "programming",
+      "setup": "I was gonna tell you a joke about UDP...",
+      "punchline": "...but you might not get it."
+    },
+    {
+      "id": 145,
+      "type": "general",
+      "setup": "How many South Americans does it take to change a lightbulb?",
+      "punchline": "A Brazilian"
+    },
+    {
+      "id": 283,
+      "type": "general",
+      "setup": "What's the best thing about elevator jokes?",
+      "punchline": "They work on so many levels."
+    },
+    {
+      "id": 118,
+      "type": "general",
+      "setup": "How did Darth Vader know what Luke was getting for Christmas?",
+      "punchline": "He felt his presents."
+    },
+    {
+      "id": 316,
+      "type": "general",
+      "setup": "Why are mummys scared of vacation?",
+      "punchline": "They're afraid to unwind."
+    },
+    {
+      "id": 339,
+      "type": "general",
+      "setup": "Why did the girl smear peanut butter on the road?",
+      "punchline": "To go with the traffic jam."
+    },
+    {
+      "id": 44,
+      "type": "general",
+      "setup": "Why did the Clydesdale give the pony a glass of water?",
+      "punchline": "Because he was a little horse"
+    },
+    {
+      "id": 117,
+      "type": "general",
+      "setup": "How come the stadium got hot after the game?",
+      "punchline": "Because all of the fans left."
+    },
+    {
+      "id": 268,
+      "type": "general",
+      "setup": "What kind of magic do cows believe in?",
+      "punchline": "MOODOO."
+    },
+    {
+      "id": 7,
+      "type": "general",
+      "setup": "What do you call a singing Laptop",
+      "punchline": "A Dell"
+    }
+  ]
+}
