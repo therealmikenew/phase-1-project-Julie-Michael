@@ -6,32 +6,35 @@
         <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="index.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Best of Elephants</title>
+        <title>Do You Like This Joke?</title>
     </head>
     <body>
         <div id="title">
-            <h1>The Best of Elephants</h1>
+            <h1>Do You Like This Joke?</h1>
         </div>
-        <div id="elephant-img">
-            <img src="https://elephant-api.herokuapp.com/pictures/001.jpg">
+        <!-- <div id="img">
+            <img src="">
+        </div> -->
+        <div id='setup'>
+            <h3>This is setup</h3>
         </div>
-        <div id="likes">
-            <p>likes: </p>
-        </div>
-        <div id="likeBtn">
-            <button>like</button>
-        </div>
-        <div id="elephant-name">
-            <h2>Elephant's Name</h2>
-        </div>
-        <div id="elephant-note">
-            <p>elephant note</p>
-        </div>
+        <button id='punchBttn'>PUNCHLINE</button>
+
+        <div id='hidden-punchline'>
+            <p hidden> </p>
+        </div><br><br>
+
+        <div id="ratings">
+            <p>Rating average: </p>
+            <input id='input-rating' type='text'>
+            <input type='submit' value='Submit'>
+        </div><br><br>
+
         <div id="nextBtn">
             <button>NEXT</button>
         </div><br><br>
         <footer>
-            <a href="https://elephant-api.herokuapp.com/">API provided by "The Elephant API</a>
+            <a href="https://official-joke-api.appspot.com/random_ten">API provided by Official Joke API </a>
             <br>
             <p>Created by <a href='https://github.com/JulieAnnMeng'>Julie Meng</a> and <a href='https://github.com/therealmikenew'>Michael Newman</a></p>
         </footer>
