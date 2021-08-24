@@ -7,7 +7,6 @@ function getJokes() {
 }
 
 
-
 //addListner function that upon DOMContentLoaded will fetch data; in this function, we will copy over data from API to json
 
 //function that will add joke to the DOM; grab setup div and punchline div; eventlistner function that when clicked, will unhide punchline div
