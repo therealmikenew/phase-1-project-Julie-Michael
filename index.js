@@ -21,10 +21,6 @@ function postJokes(jokeObj) {
     .then(joke => console.log(joke))
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 10edadf49505979231fc42ba854eda823f3afe7f
 //addListner function that upon DOMContentLoaded will fetch data; in this function, we will copy over data from API to json
 document.addEventListener("DOMContentLoaded", () => {
     getJokes();
