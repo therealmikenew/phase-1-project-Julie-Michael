@@ -1,4 +1,5 @@
 const BASE_URL = 'https://official-joke-api.appspot.com/random_ten';
+const LOCAL_URL = 'http://localhost:3000/jokes';
 
 let JOKEDATA = [];
 
@@ -17,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const ratingAvg = document.getElementById('ratings-total');
         ratingAvg.innerText = `Rating Average:${inputRating}`;
+
+        postJokes(JOKEDATA[0])
 
         //add code to average a joke rating and show the average in the DOM
 
@@ -56,6 +59,7 @@ function getJokes() {
     fetch(BASE_URL)
     .then(response => response.json())
     .then(data => {
+
         data.forEach(jokeObj => {  
             JOKEDATA.push(jokeObj);
         }); 
@@ -63,6 +67,18 @@ function getJokes() {
     });
 }
 
+function postJokes(jokeObj) {
+    console.log(jokeObj);
+    fetch(LOCAL_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jokeObj)
+    })
+    .then(response => response.json())
+    .then(joke => console.log(joke))
+}
 
 // ----------STRETCH GOALS SECION----------
 
@@ -77,16 +93,4 @@ function getJokes() {
 
 //addListner function that upon DOMContentLoaded will fetch data; in this function, we will copy over data from API to json
 // working on adding postJokes  .forEach(jokeObj => JOKEDATA.push(jokeObj)))
-// const LOCAL_URL = 'http://localhost:3000/jokes';
-//function postJokes(jokeObj) {
-//     console.log(jokeObj);
-//     fetch(LOCAL_URL, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(jokeObj)
-//     })
-//     .then(response => response.json())
-//     .then(joke => addJoke(jokeObj))
-// }
+
