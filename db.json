@@ -13,6 +13,69 @@
       "setup": "Don't look at the eclipse through a colander.",
       "punchline": "You'll strain your eyes.",
       "rating": "100"
+    },
+    {
+      "id": 23,
+      "type": "programming",
+      "setup": "Why do programmers always mix up Halloween and Christmas?",
+      "punchline": "Because Oct 31 == Dec 25",
+      "rating": "1"
+    },
+    {
+      "id": 331,
+      "type": "general",
+      "setup": "Why did the burglar hang his mugshot on the wall?",
+      "punchline": "To prove that he was framed!",
+      "rating": "4"
+    },
+    {
+      "id": 382,
+      "type": "programming",
+      "setup": "What did the router say to the doctor?",
+      "punchline": "It hurts when IP.",
+      "rating": "1"
+    },
+    {
+      "id": 385,
+      "type": "programming",
+      "setup": "3 SQL statements walk into a NoSQL bar. Soon, they walk out",
+      "punchline": "They couldn't find a table.",
+      "rating": "2"
+    },
+    {
+      "id": 346,
+      "type": "general",
+      "setup": "Why did the octopus beat the shark in a fight?",
+      "punchline": "Because it was well armed.",
+      "rating": "2"
+    },
+    {
+      "id": 289,
+      "type": "general",
+      "setup": "What’s brown and sounds like a bell?",
+      "punchline": "Dung!",
+      "rating": "3"
+    },
+    {
+      "id": 14,
+      "type": "knock-knock",
+      "setup": "Knock knock. \n Who's there? \n Little old lady. \n Little old lady who?",
+      "punchline": "I didn't know you could yodel!",
+      "rating": "2"
+    },
+    {
+      "id": 203,
+      "type": "general",
+      "setup": "What do you call a bee that lives in America?",
+      "punchline": "A USB.",
+      "rating": "34"
+    },
+    {
+      "id": 332,
+      "type": "general",
+      "setup": "Why did the chicken get a penalty?",
+      "punchline": "For fowl play.",
+      "rating": "3"
     }
   ]
 }
