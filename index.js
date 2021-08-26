@@ -7,7 +7,6 @@ let i = 0;
 // clean up code, set all functions to be ouside of DOMContent Loaded, but have them invoke there.
 
 document.addEventListener("DOMContentLoaded", () => {
-
     const punchline = document.getElementById("hidden-punchline");
 
     getJokes();
@@ -17,16 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
     ratingSection.addEventListener('submit', (e) => {
         e.preventDefault();
         getAvgRating(JOKEDATA[i].rating, ratingSection);
-        // debugger;
-        //add code to average a joke rating and show the average in the DOM
+//add code to average a joke rating and show the average in the DOM
     })
 
-    //eventlistener for next button which will have cb function, push new joke to DOM.
+//eventlistener for next button which will have cb function, push new joke to DOM.
 
     const nextBtn = document.getElementById('nextBtn');
 
     nextBtn.addEventListener('click', function() {
-       //button should cycle through the objects in our JOKEDATA global array. once it reaches the end, it starts on index 0 again.
+//button should cycle through the objects in our JOKEDATA global array. once it reaches the end, it starts on index 0 again.
         
         console.log(i);
         if (i < JOKEDATA.length) {
@@ -42,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const punchBttn = document.getElementById('punchBttn');
     
-    //eventlistener for the rating that when submitted, Waiting to do this later(send PATCH to json)
+//eventlistener for the rating that when submitted, Waiting to do this later(send PATCH to json)
     punchBttn.addEventListener('click', (e) => {
         //debugger;
         if(punchline.hasAttribute ('hidden')) {
@@ -50,36 +48,24 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
         punchline.setAttribute('hidden', true);
         } 
-        // fyi <tag or id>.removeAttribute('hidden');
-        // to add <tag or id>.setAttribute('hidden', true)
     })
-
-
     const submitJokeBttn = document.querySelector("#submit")
-
     submitJokeBttn.addEventListener('click', submitJoke)
-
-
 })
 
 
 //function that will add joke to the DOM; grab setup div and punchline div; eventlistner function that when clicked, will unhide punchline div
 function addJoke(obj){
-    //debugger;
-
-
     const jokeSetup = document.getElementById('setup');
     const punchline = document.getElementById('hidden-punchline');
     punchline.setAttribute('hidden', true);
 
-    //debugger;
     jokeSetup.innerText = obj.setup;
     punchline.innerText = obj.punchline;
-    
 }
 
 // sends back the average rating, if it was rated. if not, send our their rating
-// fix up HTML wording
+// TODO: fix up HTML wording
 function getAvgRating(joke, ratingSection){
     const inputRating = document.getElementById('input-rating').value;
     const showRating = document.getElementById('ratings-total');
@@ -91,7 +77,6 @@ function getAvgRating(joke, ratingSection){
             console.log(rateArr);
             patchJokes(rateArr);
             showRating.textContent = `Rating average: ${rateAvg}`;
-            
             // debugger;
         } else {
             const jokeObj = {...JOKEDATA[i], rating: inputRating}
@@ -109,7 +94,6 @@ function getJokes() {
     fetch(BASE_URL)
     .then(response => response.json())
     .then(data => {
-
         data.forEach(jokeObj => {  
             JOKEDATA.push(jokeObj);
         }); 
@@ -137,7 +121,6 @@ function postJokes(jokeObj) {
 // postJoke looks too much like postJokes. can we change it to postNewJokes
 function postJoke (newJoke) {
     // debugger;
-
     const configJoke = {
         method: 'POST',
         headers: {
@@ -153,7 +136,6 @@ function postJoke (newJoke) {
 // incase you want to play with this. using to bring jokes into main section to re-rate
 function patchJokes(rating){
     console.log(rating);
-    //const rating = jokeObj.rating
     debugger;
     fetch(LOCAL_URL + `jokes/${JOKEDATA[i].id}`, {
         method: "PATCH",
@@ -172,24 +154,16 @@ function patchJokes(rating){
 function submitJoke (e) {
     e.preventDefault();
     // debugger;
-
     let setup = document.querySelector('#setup-input').value
     let punchline = document.querySelector('#punchline-input').value
-
-    if (setup && punchline) {
-        
+    if (setup && punchline) {      
         let newJoke = {
             setup: setup,
             punchline: punchline
         };
-
         postJoke(newJoke)
     }
 }
-
-
-
-
 
 
 //  3) See all jokes that are rated, which we can rate them again
