@@ -5,91 +5,17 @@
       "type": "general",
       "setup": "Want to hear a joke about construction?",
       "punchline": "Nah, I'm still working on it.",
-      "rating": "7"
+      "rating": [
+        "7",
+        "10"
+      ]
     },
     {
-      "id": 47,
+      "id": 88,
       "type": "general",
-      "setup": "Don't look at the eclipse through a colander.",
-      "punchline": "You'll strain your eyes.",
-      "rating": "100"
-    },
-    {
-      "id": 23,
-      "type": "programming",
-      "setup": "Why do programmers always mix up Halloween and Christmas?",
-      "punchline": "Because Oct 31 == Dec 25",
-      "rating": "1"
-    },
-    {
-      "id": 331,
-      "type": "general",
-      "setup": "Why did the burglar hang his mugshot on the wall?",
-      "punchline": "To prove that he was framed!",
+      "setup": "Did you hear about the cheese factory that exploded in France?",
+      "punchline": "There was nothing left but de Brie.",
       "rating": "4"
-    },
-    {
-      "id": 382,
-      "type": "programming",
-      "setup": "What did the router say to the doctor?",
-      "punchline": "It hurts when IP.",
-      "rating": "1"
-    },
-    {
-      "id": 385,
-      "type": "programming",
-      "setup": "3 SQL statements walk into a NoSQL bar. Soon, they walk out",
-      "punchline": "They couldn't find a table.",
-      "rating": "2"
-    },
-    {
-      "id": 346,
-      "type": "general",
-      "setup": "Why did the octopus beat the shark in a fight?",
-      "punchline": "Because it was well armed.",
-      "rating": "2"
-    },
-    {
-      "id": 289,
-      "type": "general",
-      "setup": "What’s brown and sounds like a bell?",
-      "punchline": "Dung!",
-      "rating": "3"
-    },
-    {
-      "id": 14,
-      "type": "knock-knock",
-      "setup": "Knock knock. \n Who's there? \n Little old lady. \n Little old lady who?",
-      "punchline": "I didn't know you could yodel!",
-      "rating": "2"
-    },
-    {
-      "id": 203,
-      "type": "general",
-      "setup": "What do you call a bee that lives in America?",
-      "punchline": "A USB.",
-      "rating": "34"
-    },
-    {
-      "id": 332,
-      "type": "general",
-      "setup": "Why did the chicken get a penalty?",
-      "punchline": "For fowl play.",
-      "rating": "3"
-    },
-    {
-      "id": 268,
-      "type": "general",
-      "setup": "What kind of magic do cows believe in?",
-      "punchline": "MOODOO.",
-      "rating": "0"
-    },
-    {
-      "id": 300,
-      "type": "general",
-      "setup": "Where do rabbits go after they get married?",
-      "punchline": "On a bunny-moon.",
-      "rating": "10"
     }
   ],
   "newJokes": [
@@ -97,6 +23,55 @@
       "setup": "wrq",
       "punchline": "sgdaf",
       "id": 1
+    },
+    {
+      "id": 13,
+      "type": "knock-knock",
+      "setup": "Knock knock. \n Who's there? \n Cows go. \n Cows go who?",
+      "punchline": "No, cows go moo.",
+      "rating": "6"
+    },
+    {
+      "id": 228,
+      "type": "general",
+      "setup": "What do you call a troublesome Canadian high schooler?",
+      "punchline": "A poutine.",
+      "rating": "5"
+    },
+    {
+      "id": 222,
+      "type": "general",
+      "setup": "What do you call a monkey in a mine field?",
+      "punchline": "A babooooom!",
+      "rating": "4"
+    },
+    {
+      "id": 70,
+      "type": "general",
+      "setup": "I can't tell if i like this blender...",
+      "punchline": "It keeps giving me mixed results.",
+      "rating": "4"
+    },
+    {
+      "id": 130,
+      "type": "general",
+      "setup": "How do you make holy water?",
+      "punchline": "You boil the hell out of it.",
+      "rating": "3"
+    },
+    {
+      "id": 91,
+      "type": "general",
+      "setup": "Did you hear about the guy whose whole left side was cut off?",
+      "punchline": "He's all right now.",
+      "rating": "5"
+    },
+    {
+      "id": 22,
+      "type": "general",
+      "setup": "What does C.S. Lewis keep at the back of his wardrobe?",
+      "punchline": "Narnia business!",
+      "rating": "5"
     }
   ]
 }
