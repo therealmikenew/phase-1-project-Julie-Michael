@@ -1,5 +1,5 @@
 const BASE_URL = 'https://official-joke-api.appspot.com/random_ten';
-const LOCAL_URL = 'http://localhost:3000/jokes';
+const LOCAL_URL = 'http://localhost:3000/';
 
 let JOKEDATA = [];
 let i = 0;
@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ratings.addEventListener('submit', (e) => {
         e.preventDefault();
         const inputRating = document.getElementById('input-rating').value;
-        JOKEDATA[0].rating = inputRating;
+        JOKEDATA[i].rating = inputRating;
     
-        console.log(JOKEDATA[0].rating);
+        console.log(JOKEDATA[i].rating);
         ratings.reset();
 
         const ratingAvg = document.getElementById('ratings-total');
@@ -42,14 +42,14 @@ nextBtn.addEventListener('click', function() {
             i = 0;
             getJokes()
         }
-        debugger;
+        //debugger;
 
     });
     const punchBttn = document.getElementById('punchBttn');
     
     //eventlistener for the rating that when submitted, Waiting to do this later(send PATCH to json)
     punchBttn.addEventListener('click', (e) => {
-        debugger;
+        //debugger;
         if(punchline.hasAttribute ('hidden')) {
         punchline.removeAttribute('hidden');
         } else {
@@ -58,6 +58,11 @@ nextBtn.addEventListener('click', function() {
         // fyi <tag or id>.removeAttribute('hidden');
         // to add <tag or id>.setAttribute('hidden', true)
     })
+
+
+const submitJokeBttn = document.querySelector("#submit")
+
+submitJokeBttn.addEventListener('click', submitJoke)
 
 
 })
@@ -96,7 +101,7 @@ function getJokes() {
 
 function postJokes(jokeObj) {
     console.log(jokeObj);
-    fetch(LOCAL_URL, {
+    fetch(LOCAL_URL + 'jokes', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -110,6 +115,44 @@ function postJokes(jokeObj) {
 // ----------STRETCH GOALS SECION----------
 
 //  2) add a new joke to our JOKEDATA array
+
+function submitJoke (e) {
+    e.preventDefault();
+    debugger;
+
+    let setup = document.querySelector('#setup-input').value
+    let punchline = document.querySelector('#punchline-input').value
+
+    if (setup && punchline) {
+        
+        let newJoke = {
+            setup: setup,
+            punchline: punchline
+        };
+
+        postJoke(newJoke)
+    }
+}
+
+
+function postJoke (newJoke) {
+    debugger;
+
+    const configJoke = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newJoke)
+    };
+
+    fetch(LOCAL_URL + 'newJokes', configJoke).then(resp => resp.json())
+    .then(newJokeData => console.log(newJokeData))
+}
+
+
+
+
 
 //  3) See all jokes that are rated, which we can rate them again
 

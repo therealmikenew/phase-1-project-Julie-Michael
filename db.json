@@ -76,6 +76,27 @@
       "setup": "Why did the chicken get a penalty?",
       "punchline": "For fowl play.",
       "rating": "3"
+    },
+    {
+      "id": 268,
+      "type": "general",
+      "setup": "What kind of magic do cows believe in?",
+      "punchline": "MOODOO.",
+      "rating": "0"
+    },
+    {
+      "id": 300,
+      "type": "general",
+      "setup": "Where do rabbits go after they get married?",
+      "punchline": "On a bunny-moon.",
+      "rating": "10"
+    }
+  ],
+  "newJokes": [
+    {
+      "setup": "wrq",
+      "punchline": "sgdaf",
+      "id": 1
     }
   ]
 }
