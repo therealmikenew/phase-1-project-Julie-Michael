@@ -2,54 +2,49 @@ const BASE_URL = 'https://official-joke-api.appspot.com/random_ten';
 const LOCAL_URL = 'http://localhost:3000/';
 
 let JOKEDATA = [];
-let i = 0;
+let RATEDJOKES = [];
+let CURRENTJOKE = 0;
 
 // clean up code, set all functions to be ouside of DOMContent Loaded, but have them invoke there.
 
 document.addEventListener("DOMContentLoaded", () => {
     const punchline = document.getElementById("hidden-punchline");
     const ratingSection = document.getElementById("ratings");
-    const nextBtn = document.getElementById('nextBtn');
-    const punchBttn = document.getElementById('punchBttn');
-    const submitJokeBttn = document.getElementById("submit")
 
+//add code to average a joke rating and show the average in the DOM    
     ratingSection.addEventListener('submit', (e) => {
         e.preventDefault();
-        getAvgRating(JOKEDATA[i].rating, ratingSection);
-//add code to average a joke rating and show the average in the DOM
+        getAvgRating(JOKEDATA[CURRENTJOKE], ratingSection);
+        ratingSection.reset();
     })
 
 //eventlistener for next button which will have cb function, push new joke to DOM.
-
-nextBtn.addEventListener('click', function() {
 //button should cycle through the objects in our JOKEDATA global array. once it reaches the end, it starts on index 0 again.
-                
-                console.log(i);
-                if (i < JOKEDATA.length) {
-                    i++;
-                    console.log(i);
-                    addJoke(JOKEDATA[i]);
-                } else {
-                    i = 0;
-                    getJokes();
-                }
-                debugger;//THERE IS A BUG, SEE IF YOU CAN FIND IT
-            });
+    const nextBtn = document.getElementById('nextBtn');
+    nextBtn.addEventListener('click', function() {
+        if (CURRENTJOKE < JOKEDATA.length - 1) {
+            CURRENTJOKE++;
+        } else {
+            CURRENTJOKE = 0;
+        }
+        addJoke(JOKEDATA[CURRENTJOKE]);
+    });
 
-//eventlistener for the rating that when submitted, Waiting to do this later(send PATCH to json)
+//eventlistener for the rating that when submitted, Waiting to do this later(send PATCH to json)    
+    const punchBttn = document.getElementById('punchBttn');
     punchBttn.addEventListener('click', (e) => {
-        //debugger;
         if(punchline.hasAttribute ('hidden')) {
         punchline.removeAttribute('hidden');
         } else {
         punchline.setAttribute('hidden', true);
         } 
     })
-    
+
+    const submitJokeBttn = document.querySelector("#submit")
     submitJokeBttn.addEventListener('click', submitJoke)
 
     getJokes();
-
+    getRatedJokes();
 })
 
 
@@ -58,7 +53,6 @@ function addJoke(obj){
     const jokeSetup = document.getElementById('setup');
     const punchline = document.getElementById('hidden-punchline');
     punchline.setAttribute('hidden', true);
-
     jokeSetup.innerText = obj.setup;
     punchline.innerText = obj.punchline;
 }
@@ -68,24 +62,23 @@ function addJoke(obj){
 function getAvgRating(joke, ratingSection){
     const inputRating = document.getElementById('input-rating').value;
     const showRating = document.getElementById('ratings-total');
-        if (JOKEDATA[i].rating) {
-            // debugger;
-            const rateArr = [...JOKEDATA[i].rating, inputRating];
+        if (joke.rating) {
+            const rateArr = [...joke.rating, inputRating];
             const rateTotal = (accumulator, currentValue) => parseInt(accumulator) + parseInt(currentValue);
-            const rateAvg = (rateArr.reduce(rateTotal))/(rateArr.length);  
+            const rateAvg = Math.round((rateArr.reduce(rateTotal))/(rateArr.length));  
             console.log(rateArr);
             patchJokes(rateArr);
             showRating.textContent = `Rating average: ${rateAvg}`;
-            // debugger;
+            table = document.getElementById('table');
+            table.remove();
+            getRatedJokes();   
         } else {
-            const jokeObj = {...JOKEDATA[i], rating: inputRating}
+            const jokeObj = {...joke, rating: inputRating}
             postJokes(jokeObj);
-            //debugger;
             showRating.textContent = `Thank you for rating: ${inputRating}`;
         }
-        // debugger;
-        ratingSection.reset();
 }
+
 
 // ---------CODE BELOW FOR GET, POST, PATCH, DELETE, ETC...--------------------------------------//
 
@@ -97,6 +90,18 @@ function getJokes() {
             JOKEDATA.push(jokeObj);
         }); 
     addJoke(JOKEDATA[0]);
+    });
+}
+
+function getRatedJokes() { 
+    RATEDJOKES = [];
+    fetch(LOCAL_URL + `jokes`)
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(jokeObj => {  
+            RATEDJOKES.push(jokeObj);
+        }); 
+        renderRatedJokes();
     });
 }
 
@@ -112,9 +117,9 @@ function postJokes(jokeObj) {
     .then(response => response.json())
     .then(joke => console.log(joke))
     .catch(error => {
-        console.error('Joke already exists. sending to a PATCH. ERROR: ', error);
+        console.error('PATCH ERROR: ', error);
         console.log("can you see me")
-        patchJokes(jokeObj);
+        //patchJokes(jokeObj);
     })
 }
 // postJoke looks too much like postJokes. can we change it to postNewJokes
@@ -135,8 +140,7 @@ function postJoke (newJoke) {
 // incase you want to play with this. using to bring jokes into main section to re-rate
 function patchJokes(rating){
     console.log(rating);
-    debugger;
-    fetch(LOCAL_URL + `jokes/${JOKEDATA[i].id}`, {
+    fetch(LOCAL_URL + `jokes/${JOKEDATA[CURRENTJOKE].id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
@@ -146,6 +150,8 @@ function patchJokes(rating){
     .catch(error => {console.error('PATCH ERROR: ', error)}
     )
 }
+
+
 // ----------STRETCH GOALS SECION----------
 
 //  2) add a new joke to our JOKEDATA array
@@ -164,6 +170,57 @@ function submitJoke (e) {
     }
 }
 
-
 //  3) See all jokes that are rated, which we can rate them again
-// working on it
+
+function renderRatedJokes(){
+    const ratedJokeSection = document.getElementById('rated-jokes');
+    const ratedSection = document.createElement('table');
+    const rateTable = document.createElement('tbody'); 
+    const arrLength = RATEDJOKES.length;
+     for (objIndex = 0; objIndex <= arrLength; objIndex++) {
+        const row = document.createElement('tr');    
+        for (const key in RATEDJOKES[objIndex]) {
+            let cell = document.createElement('td');
+            if(key === 'id'){continue} 
+            else if(key === 'type'){
+                const newBtn = document.createElement('button');
+                newBtn.textContent = `see rating`;
+                newBtn.setAttribute('id', objIndex)
+                cell.appendChild(newBtn);
+                row.appendChild(cell); 
+                newBtn.addEventListener('click', (e) => {
+                     e.preventDefault();
+                     let button = e.target.id;
+                     addJoke(RATEDJOKES[button]);
+                     CURRENTJOKE = JOKEDATA.length;
+                     JOKEDATA.push(RATEDJOKES[button]);
+                })
+            } else if (key === 'rating') {
+                if (RATEDJOKES[objIndex][key].length > 1) {
+                    const rateTotal = (accumulator, currentValue) => parseInt(accumulator) + parseInt(currentValue);
+                    const rateAvg = Math.round((RATEDJOKES[objIndex][key].reduce(rateTotal))/(RATEDJOKES[objIndex][key].length));  
+                    let cellText = document.createTextNode(rateAvg);
+                    cell.appendChild(cellText);
+                    row.appendChild(cell);
+                } else { 
+                    let cellText = document.createTextNode(RATEDJOKES[objIndex][key]);
+                    cell.appendChild(cellText);
+                    row.appendChild(cell);
+                }
+            } else {
+                let cellText = document.createTextNode(RATEDJOKES[objIndex][key]);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+        }
+    rateTable.appendChild(row);    
+    ratedSection.appendChild(rateTable);
+    ratedJokeSection.appendChild(ratedSection);
+    ratedSection.setAttribute('border', '1');
+    ratedSection.setAttribute('id', 'table');
+    }
+}
+
+function renderNewJokes(){
+    // to do
+}
