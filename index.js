@@ -229,7 +229,7 @@ function postNewJokes (newJoke) {
 //  3) See all jokes that are rated, which we can rate them again
 
 function renderNewJokes(){
-    const newJokeSection = document.getElementById('tables');
+    const newJokeSection = document.getElementById('new-column');
     const newSection = document.getElementById('new-jokes');
     const newTable = document.getElementById('new-body'); 
     const arrLength = NEWJOKES.length;
@@ -278,13 +278,13 @@ function renderNewJokes(){
     newTable.appendChild(row);    
     newSection.appendChild(newTable);
     newJokeSection.appendChild(newSection);
-    newSection.setAttribute('border', '1');
+    // newSection.setAttribute('border', '1');
     newSection.setAttribute('id', 'new-table');
     }
 }
 
 function renderRatedJokes(){
-    const ratedJokeSection = document.getElementById('tables');
+    const ratedJokeSection = document.getElementById('rated-column');
     const ratedSection = document.getElementById('rated-jokes');
     const rateTable = document.getElementById('rated-body'); 
     const arrLength = (RATEDJOKES.length)-1;

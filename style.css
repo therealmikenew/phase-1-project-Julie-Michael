@@ -1,79 +1,74 @@
-/* * {
-  box-sizing: border-box;
-} */
-
-
 body {
-    text-align: center;
-    font: Arial;
-    background-color: #f6be8d;
+  text-align: center;
+  font: Arial;
+  background-color: #f6be8d;
 }
 
 img {
-    width: 300px;
-    height: 300px
+  width: 300px;
+  height: 300px
 }
 
 #title  {
-    background: #9999cc;
-    font-size: 35px;
-    color: whitesmoke;
-    letter-spacing: .3rem;
-    padding: 30px 20px 50px 40px;
-   
+  background: #9999cc;
+  font-size: 35px;
+  color: whitesmoke;
+  letter-spacing: .3rem;
+  padding: 30px 20px 50px 40px;
+ 
 }
 
 button :hover {
 
-  background-color: yellow;
+background-color: yellow;
 
 }
-  
+
 
 #new-jokes {
-  text-align: center;
+text-align: center;
 
 }
 
 .submit-form {
-  background: #9999cc;
-  padding: 35px 65px;
- 
- 
+background: #9999cc;
+padding: 35px 65px;
+
+
 
 }
 
+#new-column{
+float: left;
+}
 
+#rated-column{
+float: right;
+}
 
 .row {
-  display: flex;
-  margin-left:-5px;
-  margin-right:-5px;
+display: flex;
+margin-left:-5px;
+margin-right:-5px;
 }
 
 .column {
-  flex: 50%;
-  padding: 5px;
+flex: 50%;
+padding: 5px;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 75%;
-  border: 1px solid #ddd;
+border-collapse: collapse;
+border-spacing: 0;
+width: 75%;
+border: 1px solid #ddd;
 }
 
 th, td {
-  text-align: left;
-  padding: 10px;
+text-align: left;
+padding: 10px;
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+background-color: #f2f2f2;
 }
-
-
-  /*  STRETCH GOALS SECTION
-  -----------------------------------------------------
-  1)  Add more styling
-   */
