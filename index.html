@@ -40,9 +40,7 @@
         
 
 
-        <form class="submit-form" >
-
-
+        <form id="submit-form" >
             <div>
                 <h2>Add Your Own Joke!</h2>
               <label  id="setup">Setup</label>
@@ -58,8 +56,6 @@
                 <input id="punchline-input" size='40'>
               </div>
             </div>
-
-
             <br>
             <br>
             <div>
@@ -97,42 +93,37 @@
       </table> -->
 
 
-      <div class="row">
+      <div class="row" id='tables'>
         <div class="column">
-          <table>
-            <tr>
-              <th>New Jokes</th>
-            </tr>
-            <tr>
-              <th>See Rating</th>
-              <th>Setup</th>
-              <th>Rating</th>
-            </tr>
-            <tr>
-              <td>BLANK</td>
-              <td>BLANK</td>
-              <td>BLANK</td>
-              
-            </tr>
-            
+          <table id='new-jokes'>
+            <thead>
+              <tr>
+                <th>New Jokes</th>
+              </tr>
+            </thead>
+            <tbody id="new-body">
+              <tr>
+                <th>See Rating</th>
+                <th>Setup</th>
+                <th>Rating</th>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div class="column">
-          <table>
-            <tr>
-              <th>Rated Jokes</th>
-            </tr>
+          <table id='rated-jokes'>
+            <thead>
+              <tr>
+                <th>Rated Jokes</th>
+              </tr>
+            </thead>
+            <tbody id='rated-body'>
             <tr>
               <th>See Rating</th>
               <th>Setup</th>
               <th>Rating</th>
             </tr>
-            
-            <tr>
-              <td>BLANK</td>
-              <td>BLANK</td>
-              <td>BLANK</td>
-            </tr>
+            </tbody>
           </table>
         </div>
       </div><br><br>
