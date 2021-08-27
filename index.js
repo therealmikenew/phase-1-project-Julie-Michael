@@ -10,25 +10,16 @@ let CURRENTJOKE = 0;
 document.addEventListener("DOMContentLoaded", () => {
     const punchline = document.getElementById("hidden-punchline");
     const ratingSection = document.getElementById("ratings");
+    const nextBtn = document.getElementById('nextBtn');
+    const submitJokeBttn = document.querySelector(".submit-form")
 
 //add code to average a joke rating and show the average in the DOM    
-    ratingSection.addEventListener('submit', (e) => {
-        e.preventDefault();
-        getAvgRating(JOKEDATA[CURRENTJOKE], ratingSection);
-        ratingSection.reset();
-    })
+    ratingSection.addEventListener('submit', rateJoke)
 
 //eventlistener for next button which will have cb function, push new joke to DOM.
 //button should cycle through the objects in our JOKEDATA global array. once it reaches the end, it starts on index 0 again.
-    const nextBtn = document.getElementById('nextBtn');
-    nextBtn.addEventListener('click', function() {
-        if (CURRENTJOKE < JOKEDATA.length - 1) {
-            CURRENTJOKE++;
-        } else {
-            CURRENTJOKE = 0;
-        }
-        addJoke(JOKEDATA[CURRENTJOKE]);
-    });
+    
+    nextBtn.addEventListener('click', nextJoke);
 
 //eventlistener for the rating that when submitted, Waiting to do this later(send PATCH to json)    
     const punchBttn = document.getElementById('punchBttn');
@@ -40,13 +31,26 @@ document.addEventListener("DOMContentLoaded", () => {
         } 
     })
 
-    const submitJokeBttn = document.querySelector("#submit")
     submitJokeBttn.addEventListener('click', submitJoke)
 
     getJokes();
     getRatedJokes();
 })
 
+function rateJoke (e) {
+    e.preventDefault();
+    getAvgRating(JOKEDATA[CURRENTJOKE], ratingSection);
+    ratingSection.reset();
+}
+
+function nextJoke () {
+    if (CURRENTJOKE < JOKEDATA.length - 1) {
+        CURRENTJOKE++;
+    } else {
+        CURRENTJOKE = 0;
+    }
+    addJoke(JOKEDATA[CURRENTJOKE]);
+}
 
 //function that will add joke to the DOM; grab setup div and punchline div; eventlistner function that when clicked, will unhide punchline div
 function addJoke(obj){
@@ -66,9 +70,8 @@ function getAvgRating(joke, ratingSection){
             const rateArr = [...joke.rating, inputRating];
             const rateTotal = (accumulator, currentValue) => parseInt(accumulator) + parseInt(currentValue);
             const rateAvg = Math.round((rateArr.reduce(rateTotal))/(rateArr.length));  
-            console.log(rateArr);
             patchJokes(rateArr);
-            showRating.textContent = `Rating average: ${rateAvg}`;
+            showRating.textContent = `Rating average for this joke: ${rateAvg}`;
             table = document.getElementById('table');
             table.remove();
             getRatedJokes();   
@@ -118,24 +121,11 @@ function postJokes(jokeObj) {
     .then(joke => console.log(joke))
     .catch(error => {
         console.error('PATCH ERROR: ', error);
-        console.log("can you see me")
+        //console.log("can you see me")
         //patchJokes(jokeObj);
     })
 }
-// postJoke looks too much like postJokes. can we change it to postNewJokes
-function postJoke (newJoke) {
-    // debugger;
-    const configJoke = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newJoke)
-    };
 
-    fetch(LOCAL_URL + 'newJokes', configJoke).then(resp => resp.json())
-    .then(newJokeData => console.log(newJokeData))
-}
 
 // incase you want to play with this. using to bring jokes into main section to re-rate
 function patchJokes(rating){
@@ -159,6 +149,7 @@ function patchJokes(rating){
 function submitJoke (e) {
     e.preventDefault();
     // debugger;
+    console.log("working?")
     let setup = document.querySelector('#setup-input').value
     let punchline = document.querySelector('#punchline-input').value
     if (setup && punchline) {      
@@ -166,8 +157,26 @@ function submitJoke (e) {
             setup: setup,
             punchline: punchline
         };
-        postJoke(newJoke)
+        postNewJokes(newJoke)
     }
+    
+    
+   
+}
+
+
+function postNewJokes (newJoke) {
+    // debugger;
+    const configJoke = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newJoke)
+    };
+
+    fetch(LOCAL_URL + 'newJokes', configJoke).then(resp => resp.json())
+    .then(newJokeData => console.log(newJokeData))
 }
 
 //  3) See all jokes that are rated, which we can rate them again

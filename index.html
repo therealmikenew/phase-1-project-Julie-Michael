@@ -16,27 +16,31 @@
             <img src="">
         </div> -->
         <div>
-            <h3 id='setup'></h3>
+            <h2 id='setup'></h2>
         </div>
-        <button id='punchBttn'>PUNCHLINE</button>
+        <button id='punchBttn'>SHOW PUNCHLINE</button>
 
         <div >
-            <p id='hidden-punchline' hidden></p>
+            <h2 id='hidden-punchline' hidden></h2>
         </div><br><br>
 
         <form id="ratings">
-            <p id="ratings-total">Rating average: <span></span> </p>
-            <input id='input-rating' type='number' min='0' max='10'>
+            <p>Submit a rating between 1 ("Hated it.") and 9 ("Loved it!")</p>
+            <input id='input-rating' type='number' min='0' max='9'>
             <input type='submit' value='Submit'>
+
+            <p id="ratings-total"> </p>
         </form><br><br>
 
         <div>
-            <button id="nextBtn">NEXT</button>
+            <button id="nextBtn">NEXT JOKE</button>
         </div><br><br>
 
 
+        
 
-        <form class="submit-form">
+
+        <form class="submit-form" >
 
 
             <div>
@@ -54,6 +58,8 @@
                 <input id="punchline-input" size='40'>
               </div>
             </div>
+
+
             <br>
             <br>
             <div>
@@ -61,12 +67,103 @@
                 <button id="submit" type="submit" >SUBMIT</button>
               </div>
             </div>
-          </form>
-        </div><br><br>
+          </form> <br><br>
+
+
+
+        <!-- </div><br><br>
         <div id="rated-jokes">
           <h2>Rated Jokes</h2>
         </div>
-        <div id="new-jokes"></div>
+        <div id="new-jokes"></div> -->
+
+
+        <!-- <table id='newjokes-table' rules="all">
+          <thead colspan="1">
+              <tr>
+                  <th>See Rating</th>
+                  <th>Setup</th>
+                  <th>Rating</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td> TEST </td>
+                  <td> TEST</td>
+                  <td> TEST </td>
+                  
+              </tr>
+          </tbody>
+      </table> -->
+
+
+      <div class="row">
+        <div class="column">
+          <table>
+            <tr>
+              <th>New Jokes</th>
+            </tr>
+            <tr>
+              <th>See Rating</th>
+              <th>Setup</th>
+              <th>Rating</th>
+            </tr>
+            <tr>
+              <td>BLANK</td>
+              <td>BLANK</td>
+              <td>BLANK</td>
+              
+            </tr>
+            
+          </table>
+        </div>
+        <div class="column">
+          <table>
+            <tr>
+              <th>Rated Jokes</th>
+            </tr>
+            <tr>
+              <th>See Rating</th>
+              <th>Setup</th>
+              <th>Rating</th>
+            </tr>
+            
+            <tr>
+              <td>BLANK</td>
+              <td>BLANK</td>
+              <td>BLANK</td>
+            </tr>
+          </table>
+        </div>
+      </div><br><br>
+      
+
+
+
+
+<!-- <div class="row">
+  <div class="column">
+      <table id='ratedjokes-table'  rules="all">
+        <thead colspan="1">
+            <tr>
+              <th>See Rating</th>
+              <th>Setup</th>
+              <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td> TEST </td>
+              <td> TEST</td>
+              <td> TEST </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div> -->
+
+
+
         <footer>
             <a href="https://official-joke-api.appspot.com/random_ten">API provided by Official Joke API </a>
             <br>

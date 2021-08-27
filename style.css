@@ -1,7 +1,12 @@
+/* * {
+  box-sizing: border-box;
+} */
+
+
 body {
     text-align: center;
-    font-family: Helvetica, sans-serif;
-    background-color: #f59949;
+    font: Arial;
+    background-color: #f6be8d;
 }
 
 img {
@@ -10,14 +15,62 @@ img {
 }
 
 #title  {
+    background: #9999cc;
     font-size: 35px;
-    color: #302f33;
-    letter-spacing: .3rem
-  }
+    color: whitesmoke;
+    letter-spacing: .3rem;
+    padding: 30px 20px 50px 40px;
+   
+}
 
-  #elephant-name {
-    color: #302f33
-  }
+button :hover {
+
+  background-color: yellow;
+
+}
+  
+
+#new-jokes {
+  text-align: center;
+
+}
+
+.submit-form {
+  background: #9999cc;
+  padding: 35px 65px;
+ 
+ 
+
+}
+
+
+
+.row {
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column {
+  flex: 50%;
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 75%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
 
   /*  STRETCH GOALS SECTION
