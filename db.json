@@ -16,6 +16,86 @@
       "setup": "Did you hear about the cheese factory that exploded in France?",
       "punchline": "There was nothing left but de Brie.",
       "rating": "4"
+    },
+    {
+      "id": 17,
+      "type": "programming",
+      "setup": "Where do programmers like to hangout?",
+      "punchline": "The Foo Bar.",
+      "rating": "4"
+    },
+    {
+      "id": 5,
+      "type": "general",
+      "setup": "Why can't bicycles stand on their own?",
+      "punchline": "They are two tired",
+      "rating": {
+        "id": 5,
+        "type": "general",
+        "setup": "Why can't bicycles stand on their own?",
+        "punchline": "They are two tired",
+        "rating": "2"
+      }
+    },
+    {
+      "id": 342,
+      "type": "general",
+      "setup": "Why did the kid cross the playground?",
+      "punchline": "To get to the other slide.",
+      "rating": {
+        "id": 342,
+        "type": "general",
+        "setup": "Why did the kid cross the playground?",
+        "punchline": "To get to the other slide.",
+        "rating": "3"
+      }
+    },
+    {
+      "id": 307,
+      "type": "general",
+      "setup": "Where was the Declaration of Independence signed?",
+      "punchline": "At the bottom! ",
+      "rating": {
+        "id": 307,
+        "type": "general",
+        "setup": "Where was the Declaration of Independence signed?",
+        "punchline": "At the bottom! ",
+        "rating": "5"
+      }
+    },
+    {
+      "id": 67,
+      "type": "general",
+      "setup": "Did you watch the new comic book movie?",
+      "punchline": "It was very graphic!",
+      "rating": {
+        "id": 67,
+        "type": "general",
+        "setup": "Did you watch the new comic book movie?",
+        "punchline": "It was very graphic!",
+        "rating": "3"
+      }
+    },
+    {
+      "id": 131,
+      "type": "general",
+      "setup": "How do you organize a space party?",
+      "punchline": "You planet.",
+      "rating": "1"
+    },
+    {
+      "id": 351,
+      "type": "general",
+      "setup": "Why did the worker get fired from the orange juice factory?",
+      "punchline": "Lack of concentration.",
+      "rating": "1"
+    },
+    {
+      "id": 187,
+      "type": "general",
+      "setup": "What did the late tomato say to the early tomato?",
+      "punchline": "I’ll ketch up",
+      "rating": "4"
     }
   ],
   "newJokes": [
@@ -72,6 +152,31 @@
       "setup": "What does C.S. Lewis keep at the back of his wardrobe?",
       "punchline": "Narnia business!",
       "rating": "5"
+    },
+    {
+      "setup": "What's up?",
+      "punchline": "NOthing",
+      "id": 229
+    },
+    {
+      "setup": "What's up?",
+      "punchline": "NOthing",
+      "id": 230
+    },
+    {
+      "setup": "What's up?",
+      "punchline": "NOthing",
+      "id": 231
+    },
+    {
+      "setup": "What's up?",
+      "punchline": "NOthing",
+      "id": 232
+    },
+    {
+      "setup": "What's up?",
+      "punchline": "NOthing",
+      "id": 233
     }
   ]
 }

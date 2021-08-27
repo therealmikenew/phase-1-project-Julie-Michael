@@ -8,10 +8,10 @@ let i = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
     const punchline = document.getElementById("hidden-punchline");
-
-    getJokes();
-
     const ratingSection = document.getElementById("ratings");
+    const nextBtn = document.getElementById('nextBtn');
+    const punchBttn = document.getElementById('punchBttn');
+    const submitJokeBttn = document.getElementById("submit")
 
     ratingSection.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -21,25 +21,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //eventlistener for next button which will have cb function, push new joke to DOM.
 
-    const nextBtn = document.getElementById('nextBtn');
-
-    nextBtn.addEventListener('click', function() {
+nextBtn.addEventListener('click', function() {
 //button should cycle through the objects in our JOKEDATA global array. once it reaches the end, it starts on index 0 again.
-        
-        console.log(i);
-        if (i < JOKEDATA.length) {
-            i++;
-            console.log(i);
-            addJoke(JOKEDATA[i]);
-        } else {
-            i = 0;
-            getJokes();
-        }
-        debugger;//THERE IS A BUG, SEE IF YOU CAN FIND IT
+                
+                console.log(i);
+                if (i < JOKEDATA.length) {
+                    i++;
+                    console.log(i);
+                    addJoke(JOKEDATA[i]);
+                } else {
+                    i = 0;
+                    getJokes();
+                }
+                debugger;//THERE IS A BUG, SEE IF YOU CAN FIND IT
+            });
 
-    });
-    const punchBttn = document.getElementById('punchBttn');
-    
 //eventlistener for the rating that when submitted, Waiting to do this later(send PATCH to json)
     punchBttn.addEventListener('click', (e) => {
         //debugger;
@@ -49,8 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
         punchline.setAttribute('hidden', true);
         } 
     })
-    const submitJokeBttn = document.querySelector("#submit")
+    
     submitJokeBttn.addEventListener('click', submitJoke)
+
+    getJokes();
+
 })
 
 
